@@ -64,20 +64,34 @@
 				</ul>
 			</li>
 			<!-- User Account: style can be found in dropdown.less -->
-			<li class="dropdown user user-menu p-ph-res"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <img src="dist/img/img1.jpg" class="user-image" alt="User Image"> <span class="hidden-xs">Svetlana KABORE</span> </a>
+			<li class="dropdown user user-menu p-ph-res"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <img src="dist/img/img1.jpg" class="user-image" alt="User Image"> <span class="hidden-xs">{{ Auth::user()->name }}</span> </a>
 				<ul class="dropdown-menu">
 				<li class="user-header">
-					<div class="pull-left user-img"><img src="dist/img/img1.jpg" class="img-responsive" alt="User"></div>
-					<p class="text-left">Svetlana KABORE <small>cisse@diallo.com</small> </p>
+					<p class="text-left">{{ Auth::user()->name }} <small>{{ Auth::user()->email }}</small> </p>
 					<div class="view-link text-left"><a href="#">Voir Profile</a> </div>
 				</li>
-				<li><a href="#"><i class="icon-profile-male"></i> Mon Profile</a></li>
 				<li role="separator" class="divider"></li>
 				<li><a href="#"><i class="icon-gears"></i>Paramètre du compte</a></li>
 				<li role="separator" class="divider"></li>
-				<li><a href="#"><i class="fa fa-power-off"></i> Se déconnecter</a></li>
+				<li><a href="{{ route('logout') }}"><i class="fa fa-power-off"></i>{{ __('Se déconnecter') }}</a></li>
 				</ul>
 			</li>
 		</ul>
 	</div>
 </nav>
+
+@if(session('success'))
+    <div class="container">
+<div class="alert alert-success">
+    {{ session('success') }}
+</div>
+</div>
+@endif
+
+@if(session('error'))
+    <div class="container">
+<div class="alert alert-danger">
+    {{ session('error') }}
+</div>
+</div>
+@endif

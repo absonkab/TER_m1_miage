@@ -16,8 +16,16 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     //return view('welcome');
-    return view ('master');
+    return view ('auth/login');
 });
+
+Route::get('logout', function ()
+{
+    auth()->logout();
+    Session()->flush();
+
+    return Redirect::to('/');
+})->name('logout');
 
 Auth::routes();
 

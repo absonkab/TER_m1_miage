@@ -57,7 +57,7 @@
 					<h4 id='p1'></h4>
 					<h4>
 						<marquee>
-							Bienvenue les ami.e.s dans l'application de gestion de Post-It.
+							Bienvenue {{ Auth::user()->name }} l'application de gestion de Post-It.
 						</marquee>
 					</h4>
 					<hr>

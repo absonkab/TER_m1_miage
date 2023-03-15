@@ -55,12 +55,9 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
+                                    <li><a href="{{ route('logout') }}"><i class="fa fa-power-off"></i> onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                           {{ __('Logout') }}</a></li>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
@@ -72,6 +69,21 @@
             </div>
         </nav>
 
+        @if(session('success'))
+    <div class="container">
+<div class="alert alert-success">
+    {{ session('success') }}
+</div>
+</div>
+@endif
+
+@if(session('error'))
+    <div class="container">
+<div class="alert alert-danger">
+    {{ session('error') }}
+</div>
+</div>
+@endif
         <main class="py-4">
             @yield('content')
         </main>

@@ -45,20 +45,50 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-      <form role="form" method="POST" action="{{ route('register') }}">
+
+                                @if(session('success'))
+    <div class="container">
+<div class="alert alert-success">
+    {{ session('success') }}
+</div>
+</div>
+@endif
+
+@if(session('error'))
+    <div class="container">
+<div class="alert alert-danger">
+    {{ session('error') }}
+</div>
+</div>
+@endif
+      <form id="form" method="POST" action="{{ route('register') }}">
         @csrf
         <div class="form-group has-feedback">
-        <input id="name"  type="name" class="form-control sty1 @error('name') is-invalid @enderror" name="name" placeholder="{{ __('Nom') }}" value="{{ old('name') }}" required autocomplete="name" autofocus>
+        <input id="nom" name="name" type="name" class="form-control sty1"  placeholder="{{ __('Nom') }}" value="{{ old('name') }}" >
+        <span class="error"></span>
+      </div>
+      
+      <div class="form-group has-feedback">
+        <input id="prenom" name="prenom" type="name" class="form-control sty1" placeholder="{{ __('Prénom') }}" value="{{ old('name') }}" >
+        <span class="error"></span>
       </div>
         <div class="form-group has-feedback">
-        <input id="email"  type="email" class="form-control sty1 @error('email') is-invalid @enderror" name="email" placeholder="{{ __('Adresse e-mail') }}" value="{{ old('email') }}" required autocomplete="email" autofocus>
+        <input id="email" type="email" class="form-control sty1" name="email" placeholder="{{ __('Adresse e-mail') }}" value="{{ old('email') }}">
+        <span class="error"></span>
       </div>
       <div class="form-group has-feedback">
-        <input id="password"  type="password" class="form-control sty1 @error('password') is-invalid @enderror" placeholder="{{ __('Mot de passe') }}" name="password" required autocomplete="new-password">
+        <label>Date de naissance</label>
+        <input type="date" class="form-control sty1" name="date_naissance">
+      </div>
+      <div class="form-group has-feedback">
+        <input id="password"  type="password" class="form-control sty1" placeholder="{{ __('Mot de passe') }}" name="password">
+        <span class="error"></span>
       </div>
     
       <div class="form-group has-feedback">
-        <input id="password-confirm"  type="password" class="form-control sty1 @error('password-confirm') is-invalid @enderror" placeholder="Retapez votre mot de passe" name="password-confirm" required autocomplete="new-password">
+        <input id="password_confirmation"  type="password" class="form-control sty1" placeholder="Retapez votre mot de passe" name="password_confirmation">
+        <span class="error"></span>
+    
       </div>
     
         <!-- /.col -->
@@ -75,17 +105,13 @@
 <!-- /.login-box --> 
 <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
 <!-- jQuery 3 --> 
-<script src="{{asset('dist/js/jquery.min.js')}}"></script> 
+<script src="{{asset('dist/js/jquery.min.js')}}"></script>
 <script src="{{url('js/login.js')}}"></script>
 <!-- v4.0.0-alpha.6 --> 
 <script src="{{asset('dist/bootstrap/js/bootstrap.min.js')}}"></script> 
 
 <!-- template --> 
 <script src="{{asset('dist/js/niche.js')}}"></script>
-<script src="{{asset('dist/vendor/select2/dist/js/select2.full.min.js')}}"></script>
-<script type="{{('text/javascript')}}">
-  $(".select2").select2({ 'data-placeholder': 'Choisir...' });
-  </script>
-<script src="{{asset('dist/build/js/intlTelInput.js')}}"></script>
-</body>
+<script src="{{asset('dist/js/validationformulaire.js')}}"></script>
+  
 </html>
