@@ -37,21 +37,21 @@
 
       </div>
       
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                        
-                    @endif
-      @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    
-                                @enderror
       <form action="{{ route('password.email') }}" method="POST">
         @csrf
         <h6>Entrez votre adresse e-mail ci-dessous et nous vous enverrons la marche à suivre. Si vous ne voyez pas notre e-mail, regardez dans votre dossier Spam.</h6>
+        @if (session('status'))
+        <div class="alert alert-success" role="alert">
+            {{ session('status') }}
+        </div>
+        
+    @endif
+@error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    
+                @enderror
         <div class="form-group has-feedback">
           <input id="email" type="email" class="form-control sty1 @error('email') is-invalid @enderror" name="email" placeholder="{{ __('Adresse e-mail') }}" value="{{ old('email') }}" required autocomplete="email" autofocus>
         </div>

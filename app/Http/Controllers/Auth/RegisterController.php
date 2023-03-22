@@ -47,6 +47,28 @@ class RegisterController extends Controller
     }
 
 
+    public function confirm($id, $token)
+    {
+
+        $user = User::where('id', $id)->where('confirmation_token', $token)->first();
+
+        if($user) {
+
+            $user->update(['confirmation_token' => null]);
+            $this->guard()->login($user);
+
+            return redirect('/login')->with('success', 'Votre compte a bien été activé !');
+           // return redirect($this->redirect())->with('success', 'Votre compte a bien été activé !');
+        }
+        
+        else{
+
+            return redirect('/login')->with('error', 'Token invalide ou expiré.');
+        }
+
+    }
+
+
     public function register(Request $request)
     {
         $this->validator($request->all())->validate();
@@ -88,7 +110,7 @@ class RegisterController extends Controller
             'date_naissance' => $data['date_naissance'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'confirmation_token' => bcrypt(str_random(16)),
+            'confirmation_token' => str_replace('/', '', bcrypt(str_random(16))),
         ]);
     }
 }

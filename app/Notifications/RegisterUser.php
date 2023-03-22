@@ -35,9 +35,10 @@ class RegisterUser extends Notification
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
+        ->success()
         ->subject("Notification d'inscription")
         ->line("Merci de vous être inscrit.e sur le site Gestion de POST-IT. Votre compte est créé et doit être activé avant de pouvoir l'utiliser.")
-                    ->action('Activer votre compte', url("/confirm/{$notifiable->confirmation_token}"))
+                    ->action('Activer votre compte', url("/confirm/{$notifiable->id}/" . urlencode($notifiable->confirmation_token)))
                     ->line("Merci d'avoir utilisé notre site et à très bientôt!");
     }
 

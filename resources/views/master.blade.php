@@ -14,12 +14,13 @@
 		<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
 
 		<!-- Theme style -->
+		<link rel="stylesheet" href="{{asset('dist/jquery-toast-plugin/jquery.toast.min.css')}}">
 		<link rel="stylesheet" href="{{asset('dist/css/style.css')}}">
 		<link rel="stylesheet" href="{{asset('dist/css/font-awesome/css/font-awesome.min.css')}}">
 		<link rel="stylesheet" href="{{asset('dist/css/et-line-font/et-line-font.css')}}">
 		<link rel="stylesheet" href="{{asset('dist/css/themify-icons/themify-icons.css')}}">
 		<link rel="stylesheet" href="{{asset('dist/plugins/hmenu/ace-responsive-menu.css')}}">
-
+		<link rel="stylesheet" href="{{asset('dist/plugins/chartist-js/chartist-plugin-tooltip.css')}}">
 		<!-- Chartist CSS -->
 		<link rel="stylesheet" href="{{asset('dist/plugins/chartist-js/chartist.min.css')}}">
 		<link rel="stylesheet" href="{{asset('dist/plugins/chartist-js/chartist-plugin-tooltip.css')}}">
@@ -30,7 +31,11 @@
 		<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
-
+		<style type="text/css">
+			.orange {
+			  color: #ff7a00;
+			}
+			</style>
 	</head>
 	<body class="hold-transition skin-blue sidebar-mini">
 		<div class="wrapper boxed-wrapper">
@@ -50,14 +55,14 @@
 				<div class="content-header sty-one">
 					<h1>Tableau de bord</h1>
 					<ol class="breadcrumb">
-						<li><a href="#">Home</a></li>
+						<li><a href="{{ route('home') }}">Accueil</a></li>
 						<li><i class="fa fa-angle-right"></i> Dashboard</li>
 					</ol>
 					<hr>
 					<h4 id='p1'></h4>
 					<h4>
 						<marquee>
-							Bienvenue {{ Auth::user()->name }} l'application de gestion de Post-It.
+							Bienvenue {{ strtoupper(Auth::user()->prenom) }} {{ strtoupper(Auth::user()->name) }} l'application de gestion de Post-It.
 						</marquee>
 					</h4>
 					<hr>
@@ -191,6 +196,7 @@
 		</div>
 		<!-- ./wrapper --> 
 
+		
 		<!-- jQuery 3 --> 
 		<script src="{{asset('dist/js/jquery.min.js')}}"></script> 
 
@@ -212,7 +218,6 @@
 		<script src="{{asset('dist/plugins/chartist-js/chartist.min.js')}}"></script> 
 		<script src="{{asset('dist/plugins/chartist-js/chartist-plugin-tooltip.js')}}"></script> 
 		<script src="{{asset('dist/plugins/functions/chartist-init.js')}}"></script>
-		<script src="{{asset('dist/js/dateheure.js')}}"></script>
 		<script src="{{asset('dist/plugins/hmenu/ace-responsive-menu.js')}}" type="text/javascript"></script> 
 		<!--Plugin Initialization--> 
 		<script type="text/javascript">
@@ -224,5 +229,9 @@
 				});
 			});
 		</script>
+		<!-- Toast JavaScript --> 
+		<script src="{{asset('dist/jquery-toast-plugin/jquery.toast.min.js')}}"></script>
+		<script src="{{asset('dist/js/dashboard-data.js')}}"></script>
+		<script src="{{asset('dist/js/dateheure.js')}}"></script>
 	</body>
 </html>

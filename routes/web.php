@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,4 +30,8 @@ Route::get('logout', function ()
 
 Auth::routes();
 
+Route::get('/confirm/{id}/{token}', 'App\Http\Controllers\Auth\RegisterController@confirm');
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/profile-edit', [App\Http\Controllers\ProfileController::class, 'edit_profile'])->name('profile-edit');

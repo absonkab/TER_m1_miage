@@ -48,6 +48,21 @@
     <strong>{{ $message }}</strong>
     </span>
      @enderror
+     @if(session('success'))
+     <div class="container">
+ <div class="alert alert-success">
+     {{ session('success') }}
+ </div>
+ </div>
+ @endif
+
+     @if(session('error'))
+    <div class="container">
+<div class="alert alert-danger">
+    {{ session('error') }}
+</div>
+</div>
+@endif
 
      <form action="{{ route('login') }}" method="POST">
         @csrf

@@ -1,9 +1,7 @@
 <!-- Logo --> 
-<a href="index.html" class="logo blue-bg"> 
+<a href="{{ route('home') }}" class="logo blue-bg"> 
     <!-- mini logo for sidebar mini 50x50 pixels --> 
-    <span class="logo-mini"><img src="dist/img/logo-n.png" alt=""></span> 
-    <!-- logo for regular state and mobile devices --> 
-    <span class="logo-lg"><img src="dist/img/logo.png" alt=""></span>
+	<h4 class="logo-lg text-white">POST-ITS<span class="orange" style="font-size:40px;">.</span></h4>
 </a> 
 <!-- Header Navbar: style can be found in header.less -->
 <nav class="navbar blue-bg navbar-static-top"> 
@@ -64,11 +62,14 @@
 				</ul>
 			</li>
 			<!-- User Account: style can be found in dropdown.less -->
-			<li class="dropdown user user-menu p-ph-res"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <img src="dist/img/img1.jpg" class="user-image" alt="User Image"> <span class="hidden-xs">{{ Auth::user()->name }}</span> </a>
+			<li class="dropdown user user-menu p-ph-res"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <img src="dist/img/img1.jpg" class="user-image" alt="User Image">
+				<span class="hidden-xs">{{ Auth::user()->prenom }} {{ Auth::user()->name }}</span>
+				<span class="d-none d-lg-inline" id="logged-user" data-name="{{ strtoupper(Auth::user()->prenom) }} {{ strtoupper(Auth::user()->name) }}"><i class="fa fa-circle text-success"></i> en ligne </span> </a>
+				
 				<ul class="dropdown-menu">
 				<li class="user-header">
-					<p class="text-left">{{ Auth::user()->name }} <small>{{ Auth::user()->email }}</small> </p>
-					<div class="view-link text-left"><a href="#">Voir Profile</a> </div>
+					<p class="text-left">{{ Auth::user()->prenom }} {{ Auth::user()->name }} <small>{{ Auth::user()->email }} </small> </p>
+					<div class="view-link text-left"><a href="{{ route('profile-edit') }}">Voir Profile</a> </div>
 				</li>
 				<li role="separator" class="divider"></li>
 				<li><a href="#"><i class="icon-gears"></i>Paramètre du compte</a></li>
@@ -79,7 +80,6 @@
 		</ul>
 	</div>
 </nav>
-
 @if(session('success'))
     <div class="container">
 <div class="alert alert-success">

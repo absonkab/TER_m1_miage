@@ -11,7 +11,7 @@
 	<!--Note: declare the Menu style in the data-menu-style="horizontal" (options: horizontal, vertical, accordion) -->
 	<ul id="respMenu" class="ace-responsive-menu" data-menu-style="horizontal">
 		<li>
-			<a href="#"><i class="fa fa-dashboard"></i> <span>Tableau de bord</span></a>
+			<a href="{{ route('home') }}"><i class="fa fa-dashboard"></i> <span>Tableau de bord</span></a>
 		</li>
 		<li>
 			<a href="#"><i class="fa fa-bullseye"></i> <span>Apps</span></a>
