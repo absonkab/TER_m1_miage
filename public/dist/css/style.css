@@ -4040,11 +4040,11 @@ table.text-center, table.text-center td, table.text-center th {
 	color: #444
 }
 .login-page, .register-page {
-	background:url(../img/body-bg.jpg) no-repeat center top;
+	background:url(../images/image4.jpg) no-repeat center top;
 	background-size:cover;
 }
 .login-page.sty1, .register-page.sty1{
-	background:url(../img/body-bg1.jpg) no-repeat center top;
+	background:url(../images/image4.jpg) no-repeat center top;
 	background-size:cover;
 }
 .login-box, .register-box {

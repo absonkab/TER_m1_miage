@@ -40,9 +40,12 @@
             </span>
         @enderror
         @error('password')
+       
+            
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
+             
             @enderror
       <form action="{{ route('password.update') }}" method="POST">
         @csrf
