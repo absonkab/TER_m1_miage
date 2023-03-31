@@ -110,7 +110,7 @@ class RegisterController extends Controller
             'date_naissance' => $data['date_naissance'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'confirmation_token' => str_replace('/', '', bcrypt(str_random(16))),
+            'confirmation_token' => str_replace('/', '', bcrypt(str::random(16))),
         ]);
     }
 }

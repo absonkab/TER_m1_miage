@@ -11,6 +11,23 @@ const submitButton = document.getElementById('submit');
 //get all form inputs in a variable
 const inputs = document.querySelectorAll('input');
 
+// verify at every login page load if prefilled inputs are valid
+window.addEventListener('load', e => {
+    e.preventDefault();
+    // get values
+    let nomValue = nom.value.trim();
+    let prenomValue = prenom.value.trim();
+    let emailValue = email.value.trim();
+    //verify
+    if (nomValue !='' && prenomValue !='' && emailValue!='') {
+        verifName(nomValue);
+        verifFirstName(prenomValue);
+        verifEmail(emailValue);
+        controlSubmitButton();     
+    }
+    
+});
+
 // add eventlistener on form name element
 nom.addEventListener('keyup', e => {
     e.preventDefault();
@@ -122,7 +139,6 @@ const verifName = (nomValue) =>  {
         setError(nom, 'Veuillez utiliser que des lettres/minimum 3 lettres');
     } else {
         setSuccess(nom);
-        controlSubmitButton(nom);
     }
 };
 
