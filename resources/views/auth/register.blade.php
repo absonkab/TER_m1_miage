@@ -14,6 +14,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
 
 		<!-- Theme style -->
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 		<link rel="stylesheet" href="{{asset('dist/css/style.css')}}">
 		<link rel="stylesheet" href="{{asset('dist/css/font-awesome/css/font-awesome.min.css')}}">
 		<link rel="stylesheet" href="{{asset('dist/build/css/intlTelInput.css')}}">
@@ -81,7 +82,7 @@
 
 						<div class="form-group has-feedback">
 							<label>Date de naissance</label>
-							<input id = "date" type="date" class="form-control sty1" name="date_naissance">
+							<input id="date" type="date" class="form-control sty1" name="date_naissance">
 							<span class="error"></span>
 						</div>
 
@@ -117,6 +118,24 @@
 		<!-- template --> 
 		<script src="{{asset('dist/js/niche.js')}}"></script>
 		<script src="{{asset('dist/js/validationformulaire.js')}}"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+		<!--
+		<script>
+		$("input[type=date]").datepicker({
+  dateFormat: "yy-mm-dd",
+  onSelect: function(dateText, inst) {
+    $(inst).val(dateText); // Write the value in the input
+  }
+});
+
+// Code below to avoid the classic date-picker
+$("input[type=date]").on('click', function() {
+  return false;
+});
+		</script>
+		-->
 	</body>
   
 </html>
