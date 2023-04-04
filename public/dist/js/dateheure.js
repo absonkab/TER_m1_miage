@@ -11,7 +11,7 @@ function Timer() {
 var dt = new Date();
 var formatedTime = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
 
-document.getElementById("p1").innerHTML = 'Date : ' + dateLocale + ", " + formatedTime;
+document.getElementById("temps_actuel").innerHTML = 'Date : ' + dateLocale + ", " + formatedTime;
 setTimeout("Timer()", 900);
 }
 Timer();

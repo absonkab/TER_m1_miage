@@ -35,7 +35,7 @@
 			.orange {
 			  color: #ff7a00;
 			}
-			</style>
+		</style>
 	</head>
 	<body class="hold-transition skin-blue sidebar-mini">
 		<div class="wrapper boxed-wrapper">
@@ -59,26 +59,28 @@
 						<li><i class="fa fa-angle-right"></i> Dashboard</li>
 					</ol>
 					<hr>
-					<h4 id='p1'></h4>
+					<h4 id='temps_actuel'></h4>
+					<!--
 					<h4>
 						<marquee>
-							Bienvenue {{ strtoupper(Auth::user()->prenom) }} {{ strtoupper(Auth::user()->name) }} l'application de gestion de Post-It.
+							Bienvenue {{ strtoupper(Auth::user()->prenom) }} {{ strtoupper(Auth::user()->name) }} dans l'application de gestion de Post-It.
 						</marquee>
 					</h4>
+					-->
 					<hr>
-					<h4>Mes Post-its</h4>
+					<h4><strong>Mes Post-its</strong>></h4>
 				</div>
 					
 					<!-- Main content -->
-				<div class="content"> 
+				<div class="content" style="overflow-y: scroll; height:400px;"> 
 					<!-- Small boxes (Stat box) -->
 					<div class="row">
 						<div class="col-lg-3 col-sm-6 col-xs-12">
 							<div class="info-box bg-darkblue"> <span class="info-box-icon bg-transparent"><i class="ti-stats-up text-white"></i></span>
 								<div class="info-box-content">
-									<h6 class="info-box-text text-white">New Orders</h6>
-									<h1 class="text-white">1,150</h1>
-									<span class="progress-description text-white"> 70% Increase in 30 Days </span> 
+									<h6 class="info-box-text text-white">Post-It numéro 1</h6>
+									<h1 class="text-white">Titre du Post-It</h1>
+									<span class="progress-description text-white"> Créé le 04/04/2023</span> 
 								</div>
 								<!-- /.info-box-content --> 
 							</div>
@@ -129,19 +131,19 @@
 				<!-- Content Header (Page header) -->
 				<div class="content-header sty-one">
 					<hr>
-					<h4>Post-its où je suis invité à voir</h4>
+					<h4><strong>Post-its partagés avec moi</strong></h4>
 				</div>
 
 				<!-- Main content -->
-				<div class="content"> 
+				<div class="content" style="overflow-y: scroll; height:400px;"> 
 					<!-- Small boxes (Stat box) -->
 					<div class="row">
 						<div class="col-lg-3 col-sm-6 col-xs-12">
-							<div class="info-box bg-darkblue"> <span class="info-box-icon bg-transparent"><i class="ti-stats-up text-white"></i></span>
+							<div class="info-box bg-darkblue"> <span class="info-box-icon bg-transparent"><i class="ti-stats-up text-white ti-fa-book-open"></i></span>
 								<div class="info-box-content">
-									<h6 class="info-box-text text-white">New Orders</h6>
-									<h1 class="text-white">1,150</h1>
-									<span class="progress-description text-white"> 70% Increase in 30 Days </span> 
+									<h6 class="info-box-text text-white">Post-It de Mr untel</h6>
+									<h3 class="text-white">Titre du Post-It</h3>
+									<span class="progress-description text-white"> Créé le 04/04/2023</span> 
 								</div>
 								<!-- /.info-box-content --> 
 							</div>

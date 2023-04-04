@@ -14,11 +14,10 @@
 			<a href="{{ route('home') }}"><i class="fa fa-dashboard"></i> <span>Tableau de bord</span></a>
 		</li>
 		<li>
-			<a href="#"><i class="fa fa-bullseye"></i> <span>Apps</span></a>
-			<ul>
-				<li><a href="apps-calendar.html">Calendar</a></li>
-				<li><a href="apps-support-ticket.html">Support Ticket</a></li>
-			</ul>
+			<a href="{{ route('home') }}"><i class="fa fa-bullseye"></i> <span>Créer un nouveau Post-It</span></a>
+		</li>
+		<li>
+			<a href="{{ route('home') }}"><i class="fa fa-bullseye"></i> <span>Partager un Post-It</span></a>
 		</li>
 	</ul>
 </nav>
