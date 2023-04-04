@@ -110,12 +110,13 @@ const isValidEmail = email => {
 
 //define what is valid name and firstname
 const isValidnom = nom => {
-    const re = /^[A-za-z]{3,20}$/ ;
+    const re = /^[A-za-z]{3,20}$/ ; // rien que des lettres au minimum 3
     return re.test(String(nom));
 }
 
 const isValidprenom = prenom => {
-    const re = /^[A-za-z]{3,20}$/ ;
+    //autoriser les espaces, mais pas au début de la chaîne, et de ne pas autoriser les caractères spéciaux ou les chiffres avec au moins 3 caractères.
+    const re = /^[a-zA-Z]{1}[a-zA-Z\s]{2,}$/    // /^[A-za-z]{3,20}$/ ;
     return re.test(String(prenom));
 }
 
